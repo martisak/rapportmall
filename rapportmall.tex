@@ -1,0 +1,251 @@
+%----------------------------------------------------------
+% Rapportmall Martin Isaksson, F02
+% http://isaksson.mine.nu:4380/
+%
+% Inspiration från www.dd.chalmers.se
+%
+% Jag rekommenderar att läsa "The not so short introduction
+% to LaTeX 2e", samt övrig info på www.dd.chalmers.se/latex
+%
+%----------------------------------------------------------
+
+%----------------------------------------------------------
+% Nytt dokument
+%----------------------------------------------------------
+
+% A4-papper, textstorlek 10 pt, tvåsidig rapport
+\documentclass{tex/martin}
+
+%----------------------------------------------------------
+% Paket som används:
+%----------------------------------------------------------
+
+\usepackage{fontspec}
+
+%\usepackage{ichiswedish}  % Accept european-encoded (latin1) characters
+\usepackage{latexsym}          % Symboler
+\usepackage{amssymb}
+\usepackage[fleqn]{amsmath}           % Subekvationer (fleqn ger ekvationer vid ett fast avstånd från kanten)
+\usepackage{eurosym}           % \euro, \EUR{10} http://www.theiling.de/eurosym.html
+\usepackage{graphicx}   % För EPS-figurer
+\usepackage{subfig}
+\usepackage{moreverb}          % Verbatiminput
+\usepackage{fancyhdr}          % Snygga sidhuvuden och sidfötter, se nedan
+\usepackage{textfit}           % RIKTIGT stora bokstäver
+\usepackage{multicol}          % Kolumner
+\usepackage{tabls}             % Större mellanrum i tabeller \\[.3 cm] kan användas också.
+\usepackage[swedish]{babel}    % Svenska rubriker i t.ex. innehållsförteckningen
+\usepackage{textcomp}          % \textcelsius, \textangle (Euro)
+%\usepackage{rotating}         % Roterar text
+%\usepackage{a4wide}          % Smala marginaler
+%\usepackage{colortbl}          % Färger i tabeller
+\usepackage{booktabs}          % Snyggare tabeller
+\usepackage{enumerate}   % Snyggare listor: \begin{enumerate}[{Uppg.} a)]
+\usepackage{qtree}          % Träd
+%\frenchspacing              % Inget extra avstånd efter punkt.
+
+\usepackage{epigraph}    % Coola kapitel
+\usepackage{epipart}    % Coola delar (behöver epigraph)
+\usepackage{fancyvrb}
+\usepackage{lipsum}
+\usepackage{color}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+
+\usepackage{hyperref}  % backref linktocpage pagebackref
+
+\hypersetup{
+    %draft, % Uncomment to remove all links (useful for printing in black and white)
+    colorlinks=true, breaklinks=true, bookmarks=true,bookmarksnumbered,
+    urlcolor=gray, linkcolor=blue, citecolor=green, % Link colors
+    pdftitle={}, % PDF title
+    pdfauthor={}, % PDF Author
+    pdfsubject={}, % PDF Subject
+    pdfkeywords={}, % PDF Keywords
+    pdfcreator={pdfLaTeX}, % PDF Creator
+    pdfproducer={LaTeX with hyperref} % PDF producer
+}
+
+
+\usepackage{caption}
+\captionsetup{font=small}
+\usepackage{scrhack}
+\PassOptionsToPackage{eulerchapternumbers,listings,drafting, pdfspacing, subfig,beramono,eulermath,parts}{classicthesis}
+%\usepackage{classicthesis}
+%----------------------------------------------------------
+% Figurtexter
+%----------------------------------------------------------
+
+% DD säger caption2 men det säger inte CTAN.
+
+% Indentering: hang, center, centerlast, nooneline
+% Storlek: scriptsize, small, normalsize, large, Large
+% Stil: up, it, sl, sc, md, bf, rm, sf, tt
+
+%\usepackage[font=small,labelfont=bf,textfont=it]{mycaption}
+
+%---------------------------------------------------------
+% Kapitel
+% http://www.ctan.org/tex-archive/macros/latex/contrib/fncychap/
+%---------------------------------------------------------
+
+%\usepackage[Lenny]{fncychap}
+
+%---------------------------------------------------------
+% Ställ in varje sidas sidhuvud och sidfot.
+%---------------------------------------------------------
+
+\fancyhf{}
+
+\renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection.\ #1}}
+
+\renewcommand{\headrulewidth}{0pt}  % 0.3pt linje
+\renewcommand{\footrulewidth}{0pt}   % 0.3pt linje
+
+%Sidhuvud
+\fancyhead[RO]{\thepage}   % Right Odd
+\fancyhead[LE]{\footnotesize\rightmark} % Left Even
+\fancyhead[RO]{\footnotesize\rightmark}
+
+%Sidfot
+\fancyfoot[LE,RO]{\thepage}
+\fancyfoot[LO]{\small{Martin Isaksson\newline\emph{martisak@student.chalmers.se}}}
+\fancyfoot[RE]{\small{\emph{http://www.dd.chalmers.se/$\sim$martisak}}}
+
+\pagestyle{empty}
+
+%---------------------------------------------------------
+% Titelsidan
+%---------------------------------------------------------
+
+\begin{document}
+\begin{titlepage}
+
+\rubrik{RAPPORTMALL I FYSIK}{för civilingenjörsutbildningen vid}{Chalmers tekniska högskola}
+
+\includegraphics[width=.8\linewidth]{images/surf.eps}   % Lägg till en tuff bild
+\vfill                                    % Fyll ut vertikalt
+
+\student{Martin Isaksson}{martisak@student.chalmers.se} % Student 1
+% \student{John Doe}{doe@student.chalmers.se}  % Student 2
+
+\vspace{1 cm}
+%\small{\emph{Handledare:} Satan}
+%\vspace{1 cm}
+
+\small{Chalmers tekniska högskola}   % Skola, ort, etc
+
+\small{\today}                           % Datum
+
+\end{center}
+\end{titlepage}
+
+%---------------------------------------------------------
+% Sammanfattning.
+%--------------------------------------------------------
+
+\cleardoublepage
+
+\begin{center}
+\sffamily\textbf{Sammanfattning} \index{Sammanfattning}
+\end{center}
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam adipiscing gravida odio. Donec non ipsum non tellus egestas tincidunt. In ullamcorper. Phasellus massa eros, malesuada vel, auctor mattis, lobortis nec, quam. Mauris vel lacus. Mauris volutpat ante nec nibh. Donec faucibus varius lorem. Maecenas rhoncus volutpat tortor. Sed nunc. Nam est risus, facilisis a, sollicitudin ut, pretium eu, lectus. Donec scelerisque mi at mi. Cras adipiscing. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque risus. Etiam justo risus, tincidunt ac, faucibus ut, convallis id, pede. Praesent non ligula sit amet augue lobortis cursus.
+
+\vspace{1 cm}
+
+\begin{center}
+\sffamily\textbf{Abstract} \index{Abstract}
+\end{center}
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam adipiscing gravida odio. Donec non ipsum non tellus egestas tincidunt. In ullamcorper. Phasellus massa eros, malesuada vel, auctor mattis, lobortis nec, quam. Mauris vel lacus. Mauris volutpat ante nec nibh. Donec faucibus varius lorem. Maecenas rhoncus volutpat tortor. Sed nunc. Nam est risus, facilisis a, sollicitudin ut, pretium eu, lectus. Donec scelerisque mi at mi. Cras adipiscing. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque risus. Etiam justo risus, tincidunt ac, faucibus ut, convallis id, pede. Praesent non ligula sit amet augue lobortis cursus.
+
+%--------------------------------------------------------
+% Innehållsförteckning
+%--------------------------------------------------------
+
+\setcounter{tocdepth}{3}   % Antal nivåer i innehållsförteckningen
+\pagenumbering{roman}
+\cleardoublepage
+
+\setcounter{page}{1}
+\tableofcontents % Kompilera alltid två gånger
+
+\addcontentsline{toc}{section}{Figurer}
+\listoffigures
+
+\addcontentsline{toc}{section}{Tabeller}
+\listoftables
+
+%--------------------------------------------------------
+% Indrag
+%--------------------------------------------------------
+
+\setlength{\parskip}{12pt}      % Hopp mellan stycken
+\setlength{\parindent}{0pt}     % Indrag
+\setlength{\mathindent}{24pt}
+%--------------------------------------------------------
+% Numrering
+%--------------------------------------------------------
+\renewcommand{\thesection}{\arabic{section}}
+
+\cleardoublepage
+\pagenumbering{arabic}
+\setcounter{page}{1}     % Se till att detta är sida 1.
+
+%--------------------------------------------------------
+% Huvuddokumentet
+%--------------------------------------------------------
+\pagestyle{plain}
+
+%\chapter{Rapportmall}     % Kapitel, se ovan.
+
+%\chapter{The Social Life of Rabbits}
+%\epigraph{Oh! My ears and whiskers!}{Lewis Carroll}
+
+\cleardoublepage\epigraphhead[600]{\emph{``Actl labores jucundi''}}
+\part{Inledning}
+
+\cleardoublepage\input{inputs/intro.tex}     % Introduktion till rapportmallen
+
+\cleardoublepage\epigraphhead[600]{\emph{``Aliquando et insanire iucundum est''}}
+\part{Exempel}
+
+\cleardoublepage\input{inputs/slask.tex}     % Infogar slask-texten.
+
+\cleardoublepage\epigraphhead[600]{\itauthquote{I never guess. It is a capital mistake to theorize before one has data.
+Insensibly one begins to twist facts to suit theories, instead of theories to
+suit facts.}{Sir Arthur Conan Doyle}}
+\part{Rapportmall}
+
+\cleardoublepage\input{inputs/fysik.tex}     % Fysik-mallen från http://www.fy.chalmers.se/edu/lab/pdf/rapportskrivning.pdf
+
+%--------------------------------------------------------
+% Referenslista
+%--------------------------------------------------------
+
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{rapportmall}
+\thispagestyle{empty}
+
+%--------------------------------------------------------
+% Appendix
+%--------------------------------------------------------
+
+\bilaga
+\section{MATLAB-kod}\label{matlab}
+\subsection{Plancks strålningslag}\label{planckslag}
+\subsubsection{planck.m}
+
+\renewcommand{\theFancyVerbLine}{\textit{\texttt{\arabic{FancyVerbLine}}}}
+
+%\catcode33=\active
+
+\def\ExclamationPoint{\%}
+\catcode33=\active
+\def !{\%}
+
+\VerbatimInput[defineactive=\def!{\itshape\ExclamationPoint},numbers=left, numbersep=0.5cm]{code/planck.m}
+
+\end{document}
+
+%--------------------------------------------------------
