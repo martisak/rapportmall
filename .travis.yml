@@ -1,0 +1,16 @@
+# Link repository with Travis CI
+# https://travis-ci.org/
+
+branches:
+  only:
+    - master
+
+language: bash
+
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install texlive-full
+  - sudo apt-get install lmodern
+
+script:
+  - make
