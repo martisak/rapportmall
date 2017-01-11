@@ -1,5 +1,7 @@
 # Rapportmall LaTeX
 
+[![Build Status](https://travis-ci.org/martisak/rapportmall.svg?branch=master)](https://travis-ci.org/martisak/rapportmall)
+
 A template for reports at Chalmers from ca 2005 and uploaded almost as is.
 
 <img src="images/rapportmall-0.png" width="40%"/>
