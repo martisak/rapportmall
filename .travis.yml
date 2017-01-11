@@ -11,6 +11,7 @@ before_install:
   - sudo apt-get update -qq
   - sudo apt-get install texlive-full
   - sudo apt-get install lmodern
+  - wget https://svn.kwarc.info/repos/arXMLiv/trunk/sty/epipart.sty
 
 script:
   - make

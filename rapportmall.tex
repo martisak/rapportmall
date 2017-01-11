@@ -145,7 +145,6 @@
 %--------------------------------------------------------
 
 \cleardoublepage
-
 \begin{center}
 \sffamily\textbf{Sammanfattning} \index{Sammanfattning}
 \end{center}
@@ -164,6 +163,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam adipiscing gra
 
 \setcounter{tocdepth}{3}   % Antal nivåer i innehållsförteckningen
 \pagenumbering{roman}
+
 \cleardoublepage
 
 \setcounter{page}{1}
@@ -183,18 +183,18 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam adipiscing gra
 \setlength{\parindent}{0pt}     % Indrag
 \setlength{\mathindent}{24pt}
 %--------------------------------------------------------
-% Numrering
+% Numbering
 %--------------------------------------------------------
-\renewcommand{\thesection}{\arabic{section}}
-
+%\renewcommand{\thesection}{\arabic{section}}
 \cleardoublepage
 \pagenumbering{arabic}
 \setcounter{page}{1}     % Se till att detta är sida 1.
+\pagestyle{plain}
 
 %--------------------------------------------------------
 % Huvuddokumentet
 %--------------------------------------------------------
-\pagestyle{plain}
+
 
 %\chapter{Rapportmall}     % Kapitel, se ovan.
 
