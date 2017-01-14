@@ -9,7 +9,7 @@ language: bash
 
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install texlive texlive-xetex texlive-latex-extra texlive-lang-swedish
+  - sudo apt-get install texlive texlive-xetex texlive-latex-extra texlive-lang-swedish texlive-humanities
   - sudo apt-get install lmodern
   - wget https://svn.kwarc.info/repos/arXMLiv/trunk/sty/epipart.sty
 
