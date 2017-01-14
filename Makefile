@@ -10,7 +10,7 @@ PDF_OBJECTS=$(SOURCES:.tex=.pdf)
 BIB_OBJECTS=$(SOURCES:.tex=.aux)
 
 all: $(TARGET)
-	$(LATEX) -interaction=batchmode -output-directory=$(TARGET) rapportmall.tex
+	$(LATEX) -output-directory=$(TARGET) rapportmall.tex
 	$(BIBTEX) $(TARGET)/$(BIB_OBJECTS)
 	$(LATEX) -interaction=batchmode -output-directory=$(TARGET) rapportmall.tex
 	$(LATEX) -interaction=batchmode -output-directory=$(TARGET) rapportmall.tex
